@@ -6,7 +6,7 @@ title: About Me
 
 # Pooya Rostami Mazrae
 
-![Pooya Rostami Mazrae](../static/img/profile.jpg)
+![Pooya Rostami Mazrae](./../static/img/profile.jpg)
 
 ## Overview
 
@@ -24,19 +24,17 @@ I am currently a PhD student and researcher at [University of Mons (UMONS)](http
 
 ### 2024
 1. **Rostami Mazrae P.**, Decan A., Mens T., [**gawd: A Differencing Tool for GitHub Actions Workflows**](https://dl.acm.org/doi/10.1145/3643991.3644873), 21th International Conference on Mining Software Repositories (**MSR**) Data and Tools Showcase Track, 2024.
-   - [PDF](./papers/MSR_2024_gawd_A_Differencing_Tool_for_GitHub_Actions_Workflows.pdf)
+   - [PDF](./../static/papers/MSR_2024_gawd_A_Differencing_Tool_for_GitHub_Actions_Workflows.pdf)
    - [Tool Repository](https://github.com/pooya-rostami/gawd)
    - [Slides](https://www.slideshare.net/slideshow/gawd-a-differencing-tool-for-github-actions-workflows-pdf/267498306)
 
 ### 2023
 1. **Rostami Mazrae P.**, Decan A., Mens T., Wessel M., [**A preliminary study of GitHub Actions workflow changes**](https://ceur-ws.org/Vol-3483/paper8.pdf), Seminar on Advanced Techniques & Tools for Software Evolution (**SATToSE**), 2023.
-   - [PDF](./papers/Sattose_2023_A_Preliminary_Study_of_GitHub_Actions_Workflow_Changes.pdf)
+   - [PDF](./../static/papers/Sattose_2023_A_Preliminary_Study_of_GitHub_Actions_Workflow_Changes.pdf)
    - [Slides](https://www.slideshare.net/pooyarostamimazrae/a-preliminary-study-of-github-actions-workflow-changes-pptx)
 
 2. Wessel M., Mens T., Decan A., **Rostami Mazrae P.**, [**The GitHub Development Workflow Automation Ecosystems**](https://link.springer.com/chapter/10.1007/978-3-031-36060-2_8), Software Ecosystems: Tooling and Analytics, Book chapter, Springer Nature, 2023.
-   - [PDF](./papers/Springer_2023_bookChapter.pdf)
-
-*(Additional publications can be added in similar format)*
+   - [PDF](./../static/papers/Springer_2023_bookChapter.pdf)
 
 ## Teaching Experience
 
