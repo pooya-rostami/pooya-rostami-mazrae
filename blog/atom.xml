@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://github.com/pooya-rostami-mazrae/blog</id>
-    <title>Pooya Rostami Mazrae Blog</title>
+    <title>Welcome Blog</title>
     <updated>2021-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://github.com/pooya-rostami-mazrae/blog"/>
-    <subtitle>Pooya Rostami Mazrae Blog</subtitle>
-    <icon>https://github.com/pooya-rostami-mazrae/img/favicon.ico</icon>
+    <subtitle>Welcome Blog</subtitle>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://github.com/pooya-rostami-mazrae/blog/welcome</id>
