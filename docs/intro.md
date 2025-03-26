@@ -33,7 +33,21 @@ I am currently a PhD student and researcher at [University of Mons (UMONS)](http
 
 2. Wessel M., Mens T., Decan A., **Rostami Mazrae P.**, [**The GitHub Development Workflow Automation Ecosystems**](https://link.springer.com/chapter/10.1007/978-3-031-36060-2_8), Software Ecosystems: Tooling and Analytics, Book chapter, Springer Nature, 2023.
 
+### 2022
+1. Decan A., Mens T., **Rostami Mazrae P.**, Golzadeh M., [**On the Use of GitHub Actions in Software Development Repositories**](https://doi.org/10.1109/ICSME55016.2022.00029), 38th International Conference on Software Maintenance and Evolution (**ICSME**), Research Track, 2022. 
+   - [Presentation](https://youtu.be/SZewWstcSMk)
+   - [Slide](https://www.slideshare.net/pooyarostamimazrae/icsme20222pdf)
+   
+2. Chidambaram N., **Rostami Mazrae P.**, [**Bot Detection in GitHub Repositories**](https://dl.acm.org/doi/10.1145/3524842.3528520), 19th International Conference on Mining Software Repositories (**MSR**), Hackathon, 2022.
 
+3. **Rostami Mazrae P.**, [**Empirical Analysis of the GitHub Actions ecosystem**](https://icsr2022v2.wp.imt.fr/files/2022/06/ICSR_DS_2022_RostamiMazraeEtAl.pdf), 20th International Conference on Software and System Reuse (**ICSR**), Doctoral Symposium, 2022.
+
+### 2021
+1. **Rostami Mazrae P.**, [**Predictive Modelling of Socio-Technical Health in Evolving Software Packaging Ecosystems**](http://ceur-ws.org/Vol-3071/paper11.pdf), The 20th Belgium-Netherlands Software Evolution Workshop (**BENEVOL**), Technical Papers, 2021.
+            
+2. **Rostami Mazrae P.**, Izadi M., Heydarnoori A., [**Automated Recovery of Issue-Commit Links Leveraging Both Textual and Non-textual Data**](https://doi.org/10.1109/ICSME52107.2021.00030), 37th International Conference on Software Maintenance and Evolution (**ICSME**), Research Track, 2021.  
+   - [Presentation](https://youtu.be/WIIvoYicJ9k)
+            
 
 ## Teaching Experience
 
