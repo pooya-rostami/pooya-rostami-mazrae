@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpooya_rostami_mazrae=self.webpackChunkpooya_rostami_mazrae||[]).push([[742],{7093:a=>{a.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);

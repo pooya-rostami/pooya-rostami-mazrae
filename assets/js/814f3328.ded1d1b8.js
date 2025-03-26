@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpooya_rostami_mazrae=self.webpackChunkpooya_rostami_mazrae||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"coming-soon","permalink":"/pooya-rostami-mazrae/blog/coming-soon","unlisted":false,"date":"2025-03-26T12:40:08.000Z"}]}')}}]);
