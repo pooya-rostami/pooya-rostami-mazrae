@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpooya_rostami_mazrae=self.webpackChunkpooya_rostami_mazrae||[]).push([[191],{9305:a=>{a.exports=JSON.parse('{"metadata":{"permalink":"/pooya-rostami-mazrae/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
