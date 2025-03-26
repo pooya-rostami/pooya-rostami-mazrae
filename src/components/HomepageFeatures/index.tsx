@@ -25,20 +25,20 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/software_engineer_researcher.svg').default,
     description: (
       <>
-          Passionate researcher about the evolution of GitHub Actions workflows and delivering efficient, scalable solutions for their maintenance.cloud
+          Passionate researcher about the evolution of GitHub Actions workflows and delivering efficient, scalable solutions for their maintenance.
       </>
     ),
   },
-  // {
-  //   title: 'Powered by React',
-  //   Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-  //   description: (
-  //     <>
-  //       Extend or customize your website layout by reusing React. Docusaurus can
-  //       be extended while reusing the same header and footer.
-  //     </>
-  //   ),
-  // },
+  {
+    title: 'In Love With Data',
+    Svg: require('@site/static/img/data_analysis.svg').default,
+    description: (
+      <>
+          How raw numbers transform into meaningful insights never fails to amaze me.
+          There's always a hidden story waiting to be uncovered!
+      </>
+    ),
+  },
 ];
 
 function Feature({title, Svg, description}: FeatureItem) {
