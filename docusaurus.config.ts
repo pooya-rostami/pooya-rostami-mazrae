@@ -77,6 +77,13 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
+          sidebarId: "aboutMeSidebar",
+          position: "left",
+          label: "AboutMe",
+          to: "/about-me/cv",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
           label: "Tutorial",
