@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpooya_rostami_mazrae=self.webpackChunkpooya_rostami_mazrae||[]).push([[1903],{1912:a=>{a.exports=JSON.parse('{"blogBasePath":"/pooya-rostami-mazrae/blog","blogTitle":"Blog","authorsListPath":"/pooya-rostami-mazrae/blog/authors"}')}}]);
