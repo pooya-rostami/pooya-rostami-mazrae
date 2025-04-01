@@ -34,7 +34,11 @@ const config: Config = {
       "classic",
       {
         docs: {
+          routeBasePath: 'docs',
+          path: 'docs',
           sidebarPath: "./sidebars.ts",
+          lastVersion: 'current',
+          onlyIncludeVersions: ['current'],
         },
         blog: {
           showReadingTime: true,
