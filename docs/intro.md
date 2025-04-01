@@ -43,7 +43,7 @@ scalable solutions for their maintenance.
 - RDS (basic)
 
 
-### Certificates
+## Industry Certificates
 - [AWS Certified Cloud Practitioner](https://www.credly.com/badges/42d89f68-b12b-4b50-b38c-3f5fb79423bf/linked_in_profile)
 
 ## Research Interests
@@ -112,7 +112,7 @@ Computer Science, K. N. Toosi University of Technology
 - Ranked in top 3 students
 - Received Ghalamchi top-student scholarship
 
-## Certificates and Awards
+## Research Certificates and Awards
 
 ### Certificates
 - [The Power of Statistics](../static/awards_certificates/4_Coursera_The%20Power%20of%20Statistics.pdf)
