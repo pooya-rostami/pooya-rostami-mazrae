@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Pooya Rostami Mazrae Blog</title>
-        <link>https://github.com/blog</link>
+        <link>https://pooya-rostami.github.io/blog</link>
         <description>Pooya Rostami Mazrae Blog</description>
         <lastBuildDate>Wed, 26 Mar 2025 12:40:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[coming-soon]]></title>
-            <link>https://github.com/blog/coming-soon</link>
-            <guid>https://github.com/blog/coming-soon</guid>
+            <link>https://pooya-rostami.github.io/blog/coming-soon</link>
+            <guid>https://pooya-rostami.github.io/blog/coming-soon</guid>
             <pubDate>Wed, 26 Mar 2025 12:40:08 GMT</pubDate>
             <description><![CDATA[Coming soon]]></description>
             <content:encoded><![CDATA[<p>Coming soon</p>]]></content:encoded>
