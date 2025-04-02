@@ -120,6 +120,13 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    scripts: [
+      {
+        src: 'https://scripts.simpleanalyticscdn.com/latest.js',
+        async: true,
+        defer: true,
+      },
+    ],
   } satisfies Preset.ThemeConfig,
 };
 
