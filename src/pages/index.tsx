@@ -25,6 +25,7 @@ function HomepageHeader() {
           </Link>
         </div>
       </div>
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     </header>
   );
 }
