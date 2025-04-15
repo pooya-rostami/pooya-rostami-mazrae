@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpooya_rostami_mazrae=self.webpackChunkpooya_rostami_mazrae||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Bot Detection in GitHub Repositories","permalink":"/blog/Bot-Detection-in-GitHub-Repositories","unlisted":false,"date":"2025-04-15T08:33:06.000Z"}]}')}}]);
