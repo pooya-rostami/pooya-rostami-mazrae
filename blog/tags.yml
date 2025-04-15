@@ -1,9 +1,9 @@
 Research:
-  label: research
+  label: Research
   permalink: /research
   description: Scientific research i have participated in
 
-Software Engineering:
+SoftwareEngineering:
   label: SoftwareEngineering
   permalink: /SoftwareEngineering
   description: related to Software Engineering

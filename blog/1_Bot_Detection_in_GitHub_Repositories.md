@@ -1,7 +1,7 @@
 ---
 slug: Bot-Detection-in-GitHub-Repositories
 title: Bot Detection in GitHub Repositories
-tags: [research, SoftwareEngineering]
+tags: [Research, SoftwareEngineering]
 ---
 
 # Bot Detection in GitHub Repositories: Separating Humans from Bots
@@ -19,6 +19,8 @@ However, with this increased collaboration comes a significant workload of repet
 
 To manage this growing complexity, development teams increasingly rely on bots —machine accounts that operate with minimal human intervention— to automate these tasks. 
 As [Erlenhov et al. (2019)](https://ieeexplore.ieee.org/abstract/document/8823643) noted, bots have become essential tools for facing the ever-increasing complexity in software development.
+
+<!-- truncate -->
 
 ## The Challenge of Bot Identification
 
