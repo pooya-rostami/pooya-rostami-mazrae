@@ -4,10 +4,120 @@
         <title>Pooya Rostami Mazrae Blog</title>
         <link>https://pooya-rostami.github.io/blog</link>
         <description>Pooya Rostami Mazrae Blog</description>
-        <lastBuildDate>Tue, 15 Apr 2025 08:33:06 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 15 Apr 2025 09:59:19 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Preliminary Study of GitHub Actions Workflow Changes]]></title>
+            <link>https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes</link>
+            <guid>https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes</guid>
+            <pubDate>Tue, 15 Apr 2025 09:59:19 GMT</pubDate>
+            <description><![CDATA[Introduction]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<p>Continuous Integration and Development (CI/CD) practices have become essential in modern software development, helping developers release high-quality software more efficiently. GitHub Actions (GHA) was introduced in November 2019 as GitHub's native CI/CD solution and quickly gained popularity, replacing other tools like Travis CI within just 18 months.</p>
+<p>This article examines how GitHub Actions workflows evolve over time, based on a study of 22,733 GitHub repositories containing 4 million weekly snapshots of workflow files from November 2019 to September 2022. The research analyzes both coarse-grained changes (adding, modifying, renaming, or removing workflow files) and fine-grained changes (examining line-level modifications within these files).</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="background-on-github-actions">Background on GitHub Actions<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#background-on-github-actions" class="hash-link" aria-label="Direct link to Background on GitHub Actions" title="Direct link to Background on GitHub Actions">​</a></h2>
+<p>GitHub Actions allows developers to automate various aspects of the software development lifecycle. Workflows are configured using YAML files stored in the <code>.github/workflows/</code> directory of a repository. These workflows can automate tasks like testing, building, quality checking, dependency management, and security scanning.</p>
+<p>As with any software component, workflow files evolve over time to better serve their purposes. Understanding how workflows change can help improve CI/CD practices and assist developers in maintaining their workflows more effectively.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="example-of-workflow-changes">Example of Workflow Changes<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#example-of-workflow-changes" class="hash-link" aria-label="Direct link to Example of Workflow Changes" title="Direct link to Example of Workflow Changes">​</a></h2>
+<p>Consider a workflow file for a Java project that evolves over time. Changes might include:</p>
+<ol>
+<li>Updating the triggers that activate the workflow</li>
+<li>Adding new steps or modifying existing ones</li>
+<li>Updating versions of actions being used</li>
+<li>Changing configuration parameters</li>
+<li>Renaming steps for clarity</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="workflow file visual diff" src="https://pooya-rostami.github.io/assets/images/yaml_diff_example-36790e3c03f0c6c9fedbc4ec31dd47a3.jpg" width="831" height="450" class="img_ev3q"></p>
+<p>These changes demonstrate how workflows evolve to accommodate new requirements, fix issues, or adopt best practices.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="research-methodology">Research Methodology<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#research-methodology" class="hash-link" aria-label="Direct link to Research Methodology" title="Direct link to Research Methodology">​</a></h2>
+<p>The study analyzed 22,733 GitHub repositories with at least 100 stars and 100 commits, created before 2022 and still active in 2022. For each repository, weekly snapshots of workflow files were collected between November 2019 and September 2022, resulting in 4,127,760 workflow file snapshots across 148 time points.</p>
+<p><img decoding="async" loading="lazy" alt="Evolution of repositories and workflows over time" src="https://pooya-rostami.github.io/assets/images/Evolution%20of%20repositories%20and%20workflows%20over%20time-9c3256b8f9259cba8dee375e594c0375.jpg" width="2872" height="1480" class="img_ev3q"></p>
+<p>The figure shows continuous growth in both the number of repositories using GitHub Actions and the number of workflow files over the study period, with a notable increase in November-December 2020 when Travis CI imposed restrictions on its free plan.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-repositories-start-using-github-actions">When Do Repositories Start Using GitHub Actions?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#when-do-repositories-start-using-github-actions" class="hash-link" aria-label="Direct link to When Do Repositories Start Using GitHub Actions?" title="Direct link to When Do Repositories Start Using GitHub Actions?">​</a></h2>
+<p>The study distinguished between repositories that existed before GHA was introduced and those created after. For repositories created after GHA's release:</p>
+<ul>
+<li>50% adopted GHA within 3 months of creation</li>
+<li>75% adopted GHA within 10 months</li>
+</ul>
+<p>For repositories that existed before GHA's release:</p>
+<ul>
+<li>Only 15% adopted GHA within 3 months of its release</li>
+<li>50% adopted GHA within 10 months</li>
+<li>75% adopted GHA within 21 months</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="Time to adopt GitHub Actions based on repository creation date" src="https://pooya-rostami.github.io/assets/images/Time%20to%20adopt%20GitHub%20Actions%20based%20on%20repository%20creation%20date-8545da8a1059cd1cf7c29c076ae12a69.jpg" width="2864" height="1514" class="img_ev3q"></p>
+<p>This suggests that repositories created after GHA's introduction adopt it quickly, while older repositories take longer to migrate, likely due to existing CI/CD setups and migration challenges.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="types-of-coarse-grained-changes-in-workflows">Types of Coarse-Grained Changes in Workflows<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#types-of-coarse-grained-changes-in-workflows" class="hash-link" aria-label="Direct link to Types of Coarse-Grained Changes in Workflows" title="Direct link to Types of Coarse-Grained Changes in Workflows">​</a></h2>
+<p>The study identified four types of coarse-grained changes:</p>
+<ol>
+<li><strong>Addition</strong>: The first appearance of a workflow file</li>
+<li><strong>Modification</strong>: Changes to the content of an existing workflow file</li>
+<li><strong>Removal</strong>: Deletion of a workflow file</li>
+<li><strong>Renaming</strong>: Changing the name of a workflow file</li>
+</ol>
+<p>The most frequent change type is modification (73% of all changes), followed by addition (22.8%), removal (3.9%), and renaming (0.1%).</p>
+<p><img decoding="async" loading="lazy" alt="Proportion of repositories exhibiting different types of changes over time" src="https://pooya-rostami.github.io/assets/images/Proportion%20of%20repositories%20exhibiting%20different%20types%20of%20changes%20over%20time-172e272cc0279116439cb2eb83cc916a.jpg" width="2864" height="1514" class="img_ev3q"></p>
+<p>On average each week:</p>
+<ul>
+<li>7.2% of repositories modify a workflow file</li>
+<li>1.4% add a new workflow file</li>
+<li>0.5% remove a workflow file</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-coarse-grained-changes-occur">When Do Coarse-Grained Changes Occur?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#when-do-coarse-grained-changes-occur" class="hash-link" aria-label="Direct link to When Do Coarse-Grained Changes Occur?" title="Direct link to When Do Coarse-Grained Changes Occur?">​</a></h2>
+<p>Changes to workflow files are more frequent during the initial weeks after adopting GitHub Actions. In the first week after adoption, more than 15% of repositories make changes to their workflows, but this decreases to around 6% after six weeks.</p>
+<p><img decoding="async" loading="lazy" alt="Proportion of repositories exhibiting changes based on time since GHA adoption" src="https://pooya-rostami.github.io/assets/images/Proportion%20of%20repositories%20exhibiting%20changes%20based%20on%20time%20since%20GHA%20adoption-ad6f561444ba8c4b328ae28ecbb684f7.jpg" width="2864" height="1514" class="img_ev3q"></p>
+<p>This pattern follows Lehman's software evolution laws of continuing change and continuing growth. While the frequency of changes decreases over time, repositories continue to modify workflows throughout their lifecycle.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fine-grained-changes-to-workflow-files">Fine-Grained Changes to Workflow Files<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#fine-grained-changes-to-workflow-files" class="hash-link" aria-label="Direct link to Fine-Grained Changes to Workflow Files" title="Direct link to Fine-Grained Changes to Workflow Files">​</a></h2>
+<p>The study also analyzed line-based changes within workflow files, finding that the vast majority (87.8%) of changes involve lines of code rather than blank lines or comments. In fact, 97.6% of all modifications include at least some code changes.</p>
+<p>Looking at the nature of line-based changes:</p>
+<ul>
+<li>78.7% of changes include modifying existing lines</li>
+<li>50.1% include adding new lines</li>
+<li>26.2% include removing lines</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="Distribution of workflow changes by line operation type" src="https://pooya-rostami.github.io/assets/images/Distribution%20of%20workflow%20changes%20by%20line%20operation%20type-c13607045e99fd91ef8add9e91a3e664.jpg" width="1786" height="1724" class="img_ev3q"></p>
+<p>Only 3.45% of changes involve exclusively removing lines, while 40.11% involve only modifying lines.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-fine-grained-changes-occur">When Do Fine-Grained Changes Occur?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#when-do-fine-grained-changes-occur" class="hash-link" aria-label="Direct link to When Do Fine-Grained Changes Occur?" title="Direct link to When Do Fine-Grained Changes Occur?">​</a></h2>
+<p>On average, about 10% of lines in workflow files are touched (added, removed, or modified) when changes occur. This proportion is higher during the first few weeks after adopting GitHub Actions.</p>
+<p><img decoding="async" loading="lazy" alt="Proportion of lines touched during workflow changes over time" src="https://pooya-rostami.github.io/assets/images/Proportion%20of%20lines%20touched%20during%20workflow%20changes%20over%20time-90082f2de0fcf60893096ddedb38872a.jpg" width="2874" height="1546" class="img_ev3q"></p>
+<p>For line additions, the number decreases over time:</p>
+<ul>
+<li>Average of 7.4 lines added during the first six weeks</li>
+<li>Average of 5.6 lines added during the remainder of the first year</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="Number of lines added during workflow changes over time" src="https://pooya-rostami.github.io/assets/images/Number%20of%20lines%20added%20during%20workflow%20changes%20over%20time-d4232b69a669035d8a97cbbc1e64ef42.jpg" width="2874" height="1560" class="img_ev3q"></p>
+<p>For line modifications, the pattern remains relatively stable:</p>
+<ul>
+<li>Average of 2.8 lines modified during the first six weeks</li>
+<li>Average of 3.1 lines modified during the remainder of the first year</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="Number of lines modified during workflow changes over time" src="https://pooya-rostami.github.io/assets/images/Number%20of%20lines%20modified%20during%20workflow%20changes%20over%20time-9b591ea435e42289079abd64d232037c.jpg" width="2874" height="1552" class="img_ev3q"></p>
+<p>These findings suggest that workflow files are continuously evolving, with more substantial changes occurring early in their lifecycle, followed by regular but smaller maintenance changes.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
+<p>This study reveals several key insights about GitHub Actions workflow evolution:</p>
+<ol>
+<li>
+<p><strong>Adoption patterns</strong>: New repositories quickly adopt GitHub Actions, while existing repositories take longer to migrate from other CI/CD systems.</p>
+</li>
+<li>
+<p><strong>Change frequency</strong>: Workflows undergo frequent changes, particularly during their early lifecycle, with modifications being the most common type of change.</p>
+</li>
+<li>
+<p><strong>Evolution patterns</strong>: Workflow files follow Lehman's software evolution laws of continuing change and continuing growth, suggesting they evolve similarly to other software artifacts.</p>
+</li>
+<li>
+<p><strong>Line-level changes</strong>: Most changes involve modifying or adding lines of code, with an average of 3.1 lines modified and 5.8 lines added per workflow change.</p>
+</li>
+</ol>
+<p>These findings provide valuable insights for developers and researchers interested in CI/CD practices and workflow automation. The study lays groundwork for future research into workflow quality, complexity, and maintenance practices.</p>
+<p>To check the paper click on following <a href="https://ceur-ws.org/Vol-3483/paper8.pdf" target="_blank" rel="noopener noreferrer">link</a>.</p>
+<p>Citation:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">@article{mazrae2023preliminary,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  title={A preliminary study of github actions workflow changes},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  author={Mazrae, P Rostami and Decan, Alexandre and Mens, Tom and Wessel, Mairieli},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  year={2023},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  publisher={Sl: CEUR}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>]]></content:encoded>
+            <category>Research</category>
+            <category>SoftwareEngineering</category>
+        </item>
         <item>
             <title><![CDATA[Bot Detection in GitHub Repositories]]></title>
             <link>https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories</link>
@@ -138,7 +248,7 @@ GrimoireLab already provides excellent capabilities for:</p>
 for the implementation you can check the <a href="https://github.com/pooya-rostami/Hackathon-21" target="_blank" rel="noopener noreferrer">GitHub repository</a>.</p>
 <p>Citation:</p>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">@inproceedings{chidambaram2022bot,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  title={Bot detection in github repositories},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  author={Chidambaram, Natarajan and Mazrae, Pooya Rostami},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  booktitle={Proceedings of the 19th International Conference on Mining Software Repositories},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  pages={726--728},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  year={2022}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>]]></content:encoded>
-            <category>research</category>
+            <category>Research</category>
             <category>SoftwareEngineering</category>
         </item>
     </channel>

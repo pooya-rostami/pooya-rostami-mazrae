@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpooya_rostami_mazrae=self.webpackChunkpooya_rostami_mazrae||[]).push([[121],{8070:e=>{e.exports=JSON.parse('{"tags":[{"label":"research","permalink":"/blog/tags/research","count":1},{"label":"SoftwareEngineering","permalink":"/blog/tags/software-engineering","count":1}]}')}}]);
