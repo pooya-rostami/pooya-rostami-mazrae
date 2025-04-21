@@ -19,6 +19,8 @@ This article presents **Hybrid-Linker**, an enhanced approach that overcomes the
 
 By combining results from these two classifiers, Hybrid-Linker makes the final prediction, with one component filling gaps when the other falls short.
 
+<!-- truncate -->
+
 ## Motivating Example
 
 Let's look at a practical example to understand the challenge. Consider an issue from the Apache Flink project:
