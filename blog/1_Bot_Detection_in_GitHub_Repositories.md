@@ -139,8 +139,8 @@ By accurately identifying bot accounts based on their commenting activities in i
 
 *This is an expanded summary of the research paper "Bot Detection in GitHub Repositories" by Natarajan Chidambaram and Pooya Rostami Mazrae, presented at the 19th International Conference on Mining Software Repositories (MSR '22).*
 
-To check the paper click on following [link](https://dl.acm.org/doi/10.1145/3524842.3528520) and 
-for the implementation you can check the [GitHub repository](https://github.com/pooya-rostami/Hackathon-21).
+To check the paper click on following [link](https://dl.acm.org/doi/10.1145/3524842.3528520) or download directly from following [link](../static/papers/MSR_hackathon_2022_BotDetectionInGitHubRepository.pdf) 
+and for the implementation you can check the [GitHub repository](https://github.com/pooya-rostami/Hackathon-21).
 
 Citation:
 ```

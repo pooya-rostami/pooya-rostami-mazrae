@@ -128,7 +128,7 @@ This study reveals several key insights about GitHub Actions workflow evolution:
 
 These findings provide valuable insights for developers and researchers interested in CI/CD practices and workflow automation. The study lays groundwork for future research into workflow quality, complexity, and maintenance practices.
 
-To check the paper click on following [link](https://ceur-ws.org/Vol-3483/paper8.pdf).
+To check the paper click on following [link](https://ceur-ws.org/Vol-3483/paper8.pdf) or download directly from following [link](../static/papers/Sattose_2023_A%20Preliminary%20Study%20of%20GitHub%20Actions%20Workflow%20Changes.pdf).
 
 Citation:
 ```
