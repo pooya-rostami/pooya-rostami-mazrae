@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://pooya-rostami.github.io/blog</id>
+    <id>https://pooya-rostami.github.io/blog/</id>
     <title>Pooya Rostami Mazrae Blog</title>
     <updated>2025-04-21T12:59:44.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://pooya-rostami.github.io/blog"/>
+    <link rel="alternate" href="https://pooya-rostami.github.io/blog/"/>
     <subtitle>Pooya Rostami Mazrae Blog</subtitle>
     <entry>
         <title type="html"><![CDATA[Automated Recovery of Issue-Commit Links Leveraging Both Textual and Non-textual Data]]></title>
-        <id>https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links</id>
-        <link href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links"/>
+        <id>https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/</id>
+        <link href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/"/>
         <updated>2025-04-21T12:59:44.000Z</updated>
         <summary type="html"><![CDATA[Automated Recovery of Issue-Commit Links Leveraging Both Textual and Non-textual Data]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>Issue reports document discussions around required changes in issue-tracking systems, while commits contain the actual code changes in version control systems. Recovering links between issues and commits facilitates many software evolution tasks such as bug localization, defect prediction, software quality measurement, and documentation.</p>
 <p>A previous study on over half a million GitHub issues showed that only about 42.2% of issues are manually linked by developers to their related commits. Automating the linking of commit-issue pairs can significantly improve software maintenance tasks. However, current state-of-the-art approaches suffer from low precision, leading to unreliable results, and perform poorly when there's a lack of textual information in commits or issues.</p>
 <p>This article presents <strong>Hybrid-Linker</strong>, an enhanced approach that overcomes these limitations by exploiting both textual and non-textual data channels:</p>
@@ -21,44 +21,44 @@
 <li>A <strong>textual-based component</strong> that analyzes the textual content of commits and issues</li>
 </ol>
 <p>By combining results from these two classifiers, Hybrid-Linker makes the final prediction, with one component filling gaps when the other falls short.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="motivating-example">Motivating Example<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#motivating-example" class="hash-link" aria-label="Direct link to Motivating Example" title="Direct link to Motivating Example">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="motivating-example">Motivating Example<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#motivating-example" class="hash-link" aria-label="Direct link to Motivating Example" title="Direct link to Motivating Example">​</a></h2>
 <p>Let's look at a practical example to understand the challenge. Consider an issue from the Apache Flink project:</p>
 <p><img decoding="async" loading="lazy" alt="Example of an issue and its related commit" src="https://pooya-rostami.github.io/assets/images/Example%20of%20an%20issue%20and%20its%20related%20commit-c666734ca88760c79d4ad089c56d9454.jpg" width="1370" height="1540" class="img_ev3q"></p>
 <p>The issue titled "copy method logicalaggregate not copying indicator value properly" lacks compelling similarity between its description text, release notes, and the corresponding commit message. Due to this lack of textual similarity, previous approaches like FRLink and DeepLink struggle to discover the connection between this issue and its commit.</p>
 <p>This example highlights the need to extract knowledge from both textual and non-textual information channels of issues and commits to improve link recovery.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="approach">Approach<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#approach" class="hash-link" aria-label="Direct link to Approach" title="Direct link to Approach">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="approach">Approach<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#approach" class="hash-link" aria-label="Direct link to Approach" title="Direct link to Approach">​</a></h2>
 <p>Hybrid-Linker follows five main steps:</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-data-crawling">1. Data Crawling<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#1-data-crawling" class="hash-link" aria-label="Direct link to 1. Data Crawling" title="Direct link to 1. Data Crawling">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-data-crawling">1. Data Crawling<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#1-data-crawling" class="hash-link" aria-label="Direct link to 1. Data Crawling" title="Direct link to 1. Data Crawling">​</a></h3>
 <p>The approach starts with collecting data from issue tracking systems and version control systems, including code diff data which requires special handling due to its large volume.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-data-preparation">2. Data Preparation<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#2-data-preparation" class="hash-link" aria-label="Direct link to 2. Data Preparation" title="Direct link to 2. Data Preparation">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-data-preparation">2. Data Preparation<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#2-data-preparation" class="hash-link" aria-label="Direct link to 2. Data Preparation" title="Direct link to 2. Data Preparation">​</a></h3>
 <p>Two essential preparation steps are performed:</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="link-generation">Link Generation<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#link-generation" class="hash-link" aria-label="Direct link to Link Generation" title="Direct link to Link Generation">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="link-generation">Link Generation<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#link-generation" class="hash-link" aria-label="Direct link to Link Generation" title="Direct link to Link Generation">​</a></h4>
 <ul>
 <li><strong>True Links</strong>: Issue-commit pairs already linked by developers</li>
 <li><strong>False Links</strong>: Generated by pairing commits with issues other than the ones they're already linked to</li>
 <li>To address dataset imbalance, the approach follows criteria from previous works (comparing submission dates) and applies data balancing techniques</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="textual-data-preprocessing">Textual Data Preprocessing<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#textual-data-preprocessing" class="hash-link" aria-label="Direct link to Textual Data Preprocessing" title="Direct link to Textual Data Preprocessing">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="textual-data-preprocessing">Textual Data Preprocessing<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#textual-data-preprocessing" class="hash-link" aria-label="Direct link to Textual Data Preprocessing" title="Direct link to Textual Data Preprocessing">​</a></h4>
 <ul>
 <li>Standard NLP techniques are applied to natural language text: tokenizing, removing stop words, and stemming</li>
 <li>For code diff data, only identifiers (method and variable names) are extracted as they carry the most valuable information about changes</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-feature-engineering">3. Feature Engineering<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#3-feature-engineering" class="hash-link" aria-label="Direct link to 3. Feature Engineering" title="Direct link to 3. Feature Engineering">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="textual-feature-engineering">Textual Feature Engineering<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#textual-feature-engineering" class="hash-link" aria-label="Direct link to Textual Feature Engineering" title="Direct link to Textual Feature Engineering">​</a></h4>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-feature-engineering">3. Feature Engineering<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#3-feature-engineering" class="hash-link" aria-label="Direct link to 3. Feature Engineering" title="Direct link to 3. Feature Engineering">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="textual-feature-engineering">Textual Feature Engineering<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#textual-feature-engineering" class="hash-link" aria-label="Direct link to Textual Feature Engineering" title="Direct link to Textual Feature Engineering">​</a></h4>
 <ul>
 <li>The TF-IDF technique is applied to natural language text data of commits and issues and the code diff textual data separately</li>
 <li>Three vectors are generated and concatenated to create one textual feature vector per data point</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="non-textual-feature-engineering">Non-textual Feature Engineering<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#non-textual-feature-engineering" class="hash-link" aria-label="Direct link to Non-textual Feature Engineering" title="Direct link to Non-textual Feature Engineering">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="non-textual-feature-engineering">Non-textual Feature Engineering<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#non-textual-feature-engineering" class="hash-link" aria-label="Direct link to Non-textual Feature Engineering" title="Direct link to Non-textual Feature Engineering">​</a></h4>
 <ul>
 <li>Highly correlated columns are reduced to avoid redundancy</li>
 <li>Categorical data is transformed and optimized to avoid sparse matrices</li>
 <li>Temporal data (dates) is preserved as important features</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-model-training">4. Model Training<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#4-model-training" class="hash-link" aria-label="Direct link to 4. Model Training" title="Direct link to 4. Model Training">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-model-training">4. Model Training<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#4-model-training" class="hash-link" aria-label="Direct link to 4. Model Training" title="Direct link to 4. Model Training">​</a></h3>
 <p>Two classifier components are trained:</p>
 <p><img decoding="async" loading="lazy" alt="Overview of the proposed approach" src="https://pooya-rostami.github.io/assets/images/Overview%20of%20the%20proposed%20approach-89ecb5bf42bd322d32e2d257072f44eb.jpg" width="1170" height="1472" class="img_ev3q"></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="textual-classifier-model">Textual Classifier Model<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#textual-classifier-model" class="hash-link" aria-label="Direct link to Textual Classifier Model" title="Direct link to Textual Classifier Model">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="textual-classifier-model">Textual Classifier Model<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#textual-classifier-model" class="hash-link" aria-label="Direct link to Textual Classifier Model" title="Direct link to Textual Classifier Model">​</a></h4>
 <p>Multiple classification models are trained and evaluated:</p>
 <ul>
 <li>Decision Tree</li>
@@ -66,24 +66,24 @@
 <li>Logistic Regression</li>
 <li>Stochastic Gradient Descent</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="non-textual-classifier-model">Non-textual Classifier Model<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#non-textual-classifier-model" class="hash-link" aria-label="Direct link to Non-textual Classifier Model" title="Direct link to Non-textual Classifier Model">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="non-textual-classifier-model">Non-textual Classifier Model<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#non-textual-classifier-model" class="hash-link" aria-label="Direct link to Non-textual Classifier Model" title="Direct link to Non-textual Classifier Model">​</a></h4>
 <p>Both single and ensemble models are trained:</p>
 <ul>
 <li>Simple methods: Gradient Boosting, Naive Bayes, Generalized Linear, Random Forest, XGBoost</li>
 <li>Ensemble methods: Various combinations of the above models</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-linear-accumulator-hyper-tuning">5. Linear Accumulator Hyper-tuning<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#5-linear-accumulator-hyper-tuning" class="hash-link" aria-label="Direct link to 5. Linear Accumulator Hyper-tuning" title="Direct link to 5. Linear Accumulator Hyper-tuning">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-linear-accumulator-hyper-tuning">5. Linear Accumulator Hyper-tuning<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#5-linear-accumulator-hyper-tuning" class="hash-link" aria-label="Direct link to 5. Linear Accumulator Hyper-tuning" title="Direct link to 5. Linear Accumulator Hyper-tuning">​</a></h3>
 <p>The final prediction combines results from both classifiers using a linear accumulator function:</p>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">P_final = α × P_non-textual + (1 − α) × P_textual</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>The α hyperparameter is tuned for each project to produce optimal results.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="evaluation">Evaluation<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#evaluation" class="hash-link" aria-label="Direct link to Evaluation" title="Direct link to Evaluation">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="research-questions">Research Questions<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#research-questions" class="hash-link" aria-label="Direct link to Research Questions" title="Direct link to Research Questions">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="evaluation">Evaluation<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#evaluation" class="hash-link" aria-label="Direct link to Evaluation" title="Direct link to Evaluation">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="research-questions">Research Questions<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#research-questions" class="hash-link" aria-label="Direct link to Research Questions" title="Direct link to Research Questions">​</a></h3>
 <ol>
 <li><strong>RQ1</strong>: How effective is Hybrid-Linker compared to state-of-the-art approaches?</li>
 <li><strong>RQ2</strong>: How to combine the two components to achieve the best outcome?</li>
 <li><strong>RQ3</strong>: What is the effect of each component on the outcome?</li>
 </ol>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dataset-and-metrics">Dataset and Metrics<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#dataset-and-metrics" class="hash-link" aria-label="Direct link to Dataset and Metrics" title="Direct link to Dataset and Metrics">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dataset-and-metrics">Dataset and Metrics<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#dataset-and-metrics" class="hash-link" aria-label="Direct link to Dataset and Metrics" title="Direct link to Dataset and Metrics">​</a></h3>
 <p>The study used 12 Apache projects selected based on:</p>
 <ul>
 <li>Having repositories with more than 500 stars</li>
@@ -91,8 +91,8 @@
 </ul>
 <p><img decoding="async" loading="lazy" alt="Selected projects information" src="https://pooya-rostami.github.io/assets/images/Selected%20projects%20information-6e80e1e01ad787e04dab110db32db2dc.jpg" width="1260" height="766" class="img_ev3q"></p>
 <p>Evaluation metrics included Precision, Recall, and F-measure, using five-fold cross-validation.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="results">Results<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#results" class="hash-link" aria-label="Direct link to Results" title="Direct link to Results">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rq1-effectiveness-compared-to-state-of-the-art">RQ1: Effectiveness Compared to State-of-the-Art<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#rq1-effectiveness-compared-to-state-of-the-art" class="hash-link" aria-label="Direct link to RQ1: Effectiveness Compared to State-of-the-Art" title="Direct link to RQ1: Effectiveness Compared to State-of-the-Art">​</a></h4>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="results">Results<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#results" class="hash-link" aria-label="Direct link to Results" title="Direct link to Results">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rq1-effectiveness-compared-to-state-of-the-art">RQ1: Effectiveness Compared to State-of-the-Art<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#rq1-effectiveness-compared-to-state-of-the-art" class="hash-link" aria-label="Direct link to RQ1: Effectiveness Compared to State-of-the-Art" title="Direct link to RQ1: Effectiveness Compared to State-of-the-Art">​</a></h4>
 <p>For the textual data, we found out that <code>Gradient Boosting</code> is the best option and for non-textual data we went with the ensemble
 of <code>Gradient Boosting</code> and <code>XGBoost</code>.</p>
 <p>Performance of the approach across projects:</p>
@@ -104,14 +104,14 @@ of <code>Gradient Boosting</code> and <code>XGBoost</code>.</p>
 </ul>
 <p>Additionally, Hybrid-Linker was significantly more efficient, requiring far less training time than DeepLink.
 For instance, training on the Airflow project took only 25 minutes for Hybrid-Linker versus 7 hours for DeepLink.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rq2-optimal-component-combination">RQ2: Optimal Component Combination<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#rq2-optimal-component-combination" class="hash-link" aria-label="Direct link to RQ2: Optimal Component Combination" title="Direct link to RQ2: Optimal Component Combination">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rq2-optimal-component-combination">RQ2: Optimal Component Combination<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#rq2-optimal-component-combination" class="hash-link" aria-label="Direct link to RQ2: Optimal Component Combination" title="Direct link to RQ2: Optimal Component Combination">​</a></h4>
 <p>Each project required a different value of α for optimal results:</p>
 <ul>
 <li>Average α value across all projects: 0.66</li>
 <li>Most projects had α above 0.5, indicating non-textual components played a more important role</li>
 <li>Projects with extremes: Calcite (α = 0.95) and Ambari (α = 0.45)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rq3-component-effect-analysis">RQ3: Component Effect Analysis<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#rq3-component-effect-analysis" class="hash-link" aria-label="Direct link to RQ3: Component Effect Analysis" title="Direct link to RQ3: Component Effect Analysis">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rq3-component-effect-analysis">RQ3: Component Effect Analysis<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#rq3-component-effect-analysis" class="hash-link" aria-label="Direct link to RQ3: Component Effect Analysis" title="Direct link to RQ3: Component Effect Analysis">​</a></h4>
 <table><thead><tr><th>Model</th><th>Recall</th><th>Precision</th><th>F-measure</th><th>Std Dev</th></tr></thead><tbody><tr><td>Hybrid</td><td>90.14%</td><td>87.78%</td><td>88.88%</td><td>3.00</td></tr><tr><td>Textual</td><td>80.83%</td><td>80.92%</td><td>80.82%</td><td>5.83</td></tr><tr><td>Non-textual</td><td>85.57%</td><td>91.63%</td><td>88.36%</td><td>3.10</td></tr></tbody></table>
 <p>Key findings:</p>
 <ul>
@@ -119,11 +119,11 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
 <li>The non-textual model outperformed the hybrid model in precision</li>
 <li>The hybrid model achieved the highest recall and F-measure scores with the lowest standard deviation</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="example-success-case">Example Success Case<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#example-success-case" class="hash-link" aria-label="Direct link to Example Success Case" title="Direct link to Example Success Case">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="example-success-case">Example Success Case<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#example-success-case" class="hash-link" aria-label="Direct link to Example Success Case" title="Direct link to Example Success Case">​</a></h3>
 <p>An example shows where the model successfully recovered a true link when textual information was insufficient:</p>
 <table><thead><tr><th>Issue Information</th><th>Commit Information</th></tr></thead><tbody><tr><td>Created date: 2014-12-08</td><td>Author time date: 2014-12-10</td></tr><tr><td>Summary: "copy method logical aggregate not copying indicator value properly"</td><td>Message: "[ calcite-511 ] copy method logical aggregate not copying indicator value properly fixes # 26"</td></tr><tr><td>Bug: 1, feature: 0, task: 0</td><td>DiffCode: "logical aggregate .java..."</td></tr></tbody></table>
 <p>Despite few textual similarities, the non-textual component compensated for this shortcoming and predicted the correct connection.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links/#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
 <p>Hybrid-Linker leverages both textual and non-textual information to recover links between issues and commits. By tuning the importance of each information channel (via parameter α), it achieves superior performance compared to existing approaches, especially in cases with limited textual information.</p>
 <p>The approach outperforms competing methods with:</p>
 <ul>
@@ -133,7 +133,7 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
 </ul>
 <p>The research demonstrates that non-textual information is often critical to accurate link prediction, particularly when textual similarities are minimal.</p>
 <p>Future work will focus on identifying new features from different bug tracking and version control systems, and investigating other classifier architectures.</p>
-<p>To check the paper click on following <a href="https://ieeexplore.ieee.org/abstract/document/9609165" target="_blank" rel="noopener noreferrer">link</a> or download directly from following <a href="https://pooya-rostami.github.io/assets/files/ICSME_2021_AutomatedRecoveryOfIssueCommitLinks-d11b8d91f98bfe849f5cf23a71c74542.pdf" target="_blank">link</a>.</p>
+<p>To check the paper click on following <a href="https://ieeexplore.ieee.org/abstract/document/9609165" target="_blank" rel="noopener noreferrer">link</a> or download directly from following <a href="https://pooya-rostami.github.io/assets/files/ICSME_2021_AutomatedRecoveryOfIssueCommitLinks-d11b8d91f98bfe849f5cf23a71c74542.pdf/" target="_blank">link</a>.</p>
 <p>Citation:</p>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">@inproceedings{mazrae2021automated,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  title={Automated recovery of issue-commit links leveraging both textual and non-textual data},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  author={Mazrae, Pooya Rostami and Izadi, Maliheh and Heydarnoori, Abbas},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  booktitle={2021 IEEE International Conference on Software Maintenance and Evolution (ICSME)},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  pages={263--273},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  year={2021},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  organization={IEEE}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>]]></content>
         <category label="Research" term="Research"/>
@@ -141,17 +141,17 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
     </entry>
     <entry>
         <title type="html"><![CDATA[Preliminary Study of GitHub Actions Workflow Changes]]></title>
-        <id>https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes</id>
-        <link href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes"/>
+        <id>https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/</id>
+        <link href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/"/>
         <updated>2025-04-15T09:59:19.000Z</updated>
         <summary type="html"><![CDATA[Preliminary Study of GitHub Actions Workflow Changes]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>Continuous Integration and Development (CI/CD) practices have become essential in modern software development, helping developers release high-quality software more efficiently. GitHub Actions (GHA) was introduced in November 2019 as GitHub's native CI/CD solution and quickly gained popularity, replacing other tools like Travis CI within just 18 months.</p>
 <p>This article examines how GitHub Actions workflows evolve over time, based on a study of 22,733 GitHub repositories containing 4 million weekly snapshots of workflow files from November 2019 to September 2022. The research analyzes both coarse-grained changes (adding, modifying, renaming, or removing workflow files) and fine-grained changes (examining line-level modifications within these files).</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="background-on-github-actions">Background on GitHub Actions<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#background-on-github-actions" class="hash-link" aria-label="Direct link to Background on GitHub Actions" title="Direct link to Background on GitHub Actions">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="background-on-github-actions">Background on GitHub Actions<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#background-on-github-actions" class="hash-link" aria-label="Direct link to Background on GitHub Actions" title="Direct link to Background on GitHub Actions">​</a></h2>
 <p>GitHub Actions allows developers to automate various aspects of the software development lifecycle. Workflows are configured using YAML files stored in the <code>.github/workflows/</code> directory of a repository. These workflows can automate tasks like testing, building, quality checking, dependency management, and security scanning.</p>
 <p>As with any software component, workflow files evolve over time to better serve their purposes. Understanding how workflows change can help improve CI/CD practices and assist developers in maintaining their workflows more effectively.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="example-of-workflow-changes">Example of Workflow Changes<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#example-of-workflow-changes" class="hash-link" aria-label="Direct link to Example of Workflow Changes" title="Direct link to Example of Workflow Changes">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="example-of-workflow-changes">Example of Workflow Changes<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#example-of-workflow-changes" class="hash-link" aria-label="Direct link to Example of Workflow Changes" title="Direct link to Example of Workflow Changes">​</a></h2>
 <p>Consider a workflow file for a Java project that evolves over time. Changes might include:</p>
 <ol>
 <li>Updating the triggers that activate the workflow</li>
@@ -162,11 +162,11 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
 </ol>
 <p><img decoding="async" loading="lazy" alt="workflow file visual diff" src="https://pooya-rostami.github.io/assets/images/yaml_diff_example-36790e3c03f0c6c9fedbc4ec31dd47a3.jpg" width="831" height="450" class="img_ev3q"></p>
 <p>These changes demonstrate how workflows evolve to accommodate new requirements, fix issues, or adopt best practices.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="research-methodology">Research Methodology<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#research-methodology" class="hash-link" aria-label="Direct link to Research Methodology" title="Direct link to Research Methodology">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="research-methodology">Research Methodology<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#research-methodology" class="hash-link" aria-label="Direct link to Research Methodology" title="Direct link to Research Methodology">​</a></h2>
 <p>The study analyzed 22,733 GitHub repositories with at least 100 stars and 100 commits, created before 2022 and still active in 2022. For each repository, weekly snapshots of workflow files were collected between November 2019 and September 2022, resulting in 4,127,760 workflow file snapshots across 148 time points.</p>
 <p><img decoding="async" loading="lazy" alt="Evolution of repositories and workflows over time" src="https://pooya-rostami.github.io/assets/images/Evolution%20of%20repositories%20and%20workflows%20over%20time-9c3256b8f9259cba8dee375e594c0375.jpg" width="2872" height="1480" class="img_ev3q"></p>
 <p>The figure shows continuous growth in both the number of repositories using GitHub Actions and the number of workflow files over the study period, with a notable increase in November-December 2020 when Travis CI imposed restrictions on its free plan.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-repositories-start-using-github-actions">When Do Repositories Start Using GitHub Actions?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#when-do-repositories-start-using-github-actions" class="hash-link" aria-label="Direct link to When Do Repositories Start Using GitHub Actions?" title="Direct link to When Do Repositories Start Using GitHub Actions?">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-repositories-start-using-github-actions">When Do Repositories Start Using GitHub Actions?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#when-do-repositories-start-using-github-actions" class="hash-link" aria-label="Direct link to When Do Repositories Start Using GitHub Actions?" title="Direct link to When Do Repositories Start Using GitHub Actions?">​</a></h2>
 <p>The study distinguished between repositories that existed before GHA was introduced and those created after. For repositories created after GHA's release:</p>
 <ul>
 <li>50% adopted GHA within 3 months of creation</li>
@@ -180,7 +180,7 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
 </ul>
 <p><img decoding="async" loading="lazy" alt="Time to adopt GitHub Actions based on repository creation date" src="https://pooya-rostami.github.io/assets/images/Time%20to%20adopt%20GitHub%20Actions%20based%20on%20repository%20creation%20date-8545da8a1059cd1cf7c29c076ae12a69.jpg" width="2864" height="1514" class="img_ev3q"></p>
 <p>This suggests that repositories created after GHA's introduction adopt it quickly, while older repositories take longer to migrate, likely due to existing CI/CD setups and migration challenges.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="types-of-coarse-grained-changes-in-workflows">Types of Coarse-Grained Changes in Workflows<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#types-of-coarse-grained-changes-in-workflows" class="hash-link" aria-label="Direct link to Types of Coarse-Grained Changes in Workflows" title="Direct link to Types of Coarse-Grained Changes in Workflows">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="types-of-coarse-grained-changes-in-workflows">Types of Coarse-Grained Changes in Workflows<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#types-of-coarse-grained-changes-in-workflows" class="hash-link" aria-label="Direct link to Types of Coarse-Grained Changes in Workflows" title="Direct link to Types of Coarse-Grained Changes in Workflows">​</a></h2>
 <p>The study identified four types of coarse-grained changes:</p>
 <ol>
 <li><strong>Addition</strong>: The first appearance of a workflow file</li>
@@ -196,11 +196,11 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
 <li>1.4% add a new workflow file</li>
 <li>0.5% remove a workflow file</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-coarse-grained-changes-occur">When Do Coarse-Grained Changes Occur?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#when-do-coarse-grained-changes-occur" class="hash-link" aria-label="Direct link to When Do Coarse-Grained Changes Occur?" title="Direct link to When Do Coarse-Grained Changes Occur?">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-coarse-grained-changes-occur">When Do Coarse-Grained Changes Occur?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#when-do-coarse-grained-changes-occur" class="hash-link" aria-label="Direct link to When Do Coarse-Grained Changes Occur?" title="Direct link to When Do Coarse-Grained Changes Occur?">​</a></h2>
 <p>Changes to workflow files are more frequent during the initial weeks after adopting GitHub Actions. In the first week after adoption, more than 15% of repositories make changes to their workflows, but this decreases to around 6% after six weeks.</p>
 <p><img decoding="async" loading="lazy" alt="Proportion of repositories exhibiting changes based on time since GHA adoption" src="https://pooya-rostami.github.io/assets/images/Proportion%20of%20repositories%20exhibiting%20changes%20based%20on%20time%20since%20GHA%20adoption-ad6f561444ba8c4b328ae28ecbb684f7.jpg" width="2864" height="1514" class="img_ev3q"></p>
 <p>This pattern follows Lehman's software evolution laws of continuing change and continuing growth. While the frequency of changes decreases over time, repositories continue to modify workflows throughout their lifecycle.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fine-grained-changes-to-workflow-files">Fine-Grained Changes to Workflow Files<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#fine-grained-changes-to-workflow-files" class="hash-link" aria-label="Direct link to Fine-Grained Changes to Workflow Files" title="Direct link to Fine-Grained Changes to Workflow Files">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fine-grained-changes-to-workflow-files">Fine-Grained Changes to Workflow Files<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#fine-grained-changes-to-workflow-files" class="hash-link" aria-label="Direct link to Fine-Grained Changes to Workflow Files" title="Direct link to Fine-Grained Changes to Workflow Files">​</a></h2>
 <p>The study also analyzed line-based changes within workflow files, finding that the vast majority (87.8%) of changes involve lines of code rather than blank lines or comments. In fact, 97.6% of all modifications include at least some code changes.</p>
 <p>Looking at the nature of line-based changes:</p>
 <ul>
@@ -210,7 +210,7 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
 </ul>
 <p><img decoding="async" loading="lazy" alt="Distribution of workflow changes by line operation type" src="https://pooya-rostami.github.io/assets/images/Distribution%20of%20workflow%20changes%20by%20line%20operation%20type-c13607045e99fd91ef8add9e91a3e664.jpg" width="1786" height="1724" class="img_ev3q"></p>
 <p>Only 3.45% of changes involve exclusively removing lines, while 40.11% involve only modifying lines.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-fine-grained-changes-occur">When Do Fine-Grained Changes Occur?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#when-do-fine-grained-changes-occur" class="hash-link" aria-label="Direct link to When Do Fine-Grained Changes Occur?" title="Direct link to When Do Fine-Grained Changes Occur?">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-do-fine-grained-changes-occur">When Do Fine-Grained Changes Occur?<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#when-do-fine-grained-changes-occur" class="hash-link" aria-label="Direct link to When Do Fine-Grained Changes Occur?" title="Direct link to When Do Fine-Grained Changes Occur?">​</a></h2>
 <p>On average, about 10% of lines in workflow files are touched (added, removed, or modified) when changes occur. This proportion is higher during the first few weeks after adopting GitHub Actions.</p>
 <p><img decoding="async" loading="lazy" alt="Proportion of lines touched during workflow changes over time" src="https://pooya-rostami.github.io/assets/images/Proportion%20of%20lines%20touched%20during%20workflow%20changes%20over%20time-90082f2de0fcf60893096ddedb38872a.jpg" width="2874" height="1546" class="img_ev3q"></p>
 <p>For line additions, the number decreases over time:</p>
@@ -226,7 +226,7 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
 </ul>
 <p><img decoding="async" loading="lazy" alt="Number of lines modified during workflow changes over time" src="https://pooya-rostami.github.io/assets/images/Number%20of%20lines%20modified%20during%20workflow%20changes%20over%20time-9b591ea435e42289079abd64d232037c.jpg" width="2874" height="1552" class="img_ev3q"></p>
 <p>These findings suggest that workflow files are continuously evolving, with more substantial changes occurring early in their lifecycle, followed by regular but smaller maintenance changes.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes/#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
 <p>This study reveals several key insights about GitHub Actions workflow evolution:</p>
 <ol>
 <li>
@@ -243,7 +243,7 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
 </li>
 </ol>
 <p>These findings provide valuable insights for developers and researchers interested in CI/CD practices and workflow automation. The study lays groundwork for future research into workflow quality, complexity, and maintenance practices.</p>
-<p>To check the paper click on following <a href="https://ceur-ws.org/Vol-3483/paper8.pdf" target="_blank" rel="noopener noreferrer">link</a> or download directly from following <a href="https://pooya-rostami.github.io/assets/files/Sattose_2023_A%20Preliminary%20Study%20of%20GitHub%20Actions%20Workflow%20Changes-5c547924315b0913d2f13c7d91bc599f.pdf" target="_blank">link</a>.</p>
+<p>To check the paper click on following <a href="https://ceur-ws.org/Vol-3483/paper8.pdf" target="_blank" rel="noopener noreferrer">link</a> or download directly from following <a href="https://pooya-rostami.github.io/assets/files/Sattose_2023_A%20Preliminary%20Study%20of%20GitHub%20Actions%20Workflow%20Changes-5c547924315b0913d2f13c7d91bc599f.pdf/" target="_blank">link</a>.</p>
 <p>Citation:</p>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">@article{mazrae2023preliminary,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  title={A preliminary study of github actions workflow changes},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  author={Mazrae, P Rostami and Decan, Alexandre and Mens, Tom and Wessel, Mairieli},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  year={2023},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  publisher={Sl: CEUR}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>]]></content>
         <category label="Research" term="Research"/>
@@ -251,11 +251,11 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
     </entry>
     <entry>
         <title type="html"><![CDATA[Bot Detection in GitHub Repositories]]></title>
-        <id>https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories</id>
-        <link href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories"/>
+        <id>https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/</id>
+        <link href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/"/>
         <updated>2025-04-15T08:33:06.000Z</updated>
         <summary type="html"><![CDATA[Bot Detection in GitHub Repositories]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>In today's collaborative software development landscape, GitHub and similar platforms have revolutionized how developers work together.
 However, with this increased collaboration comes a significant workload of repetitive, error-prone, and time-intensive tasks such as:</p>
 <ul>
@@ -267,7 +267,7 @@ However, with this increased collaboration comes a significant workload of repet
 </ul>
 <p>To manage this growing complexity, development teams increasingly rely on bots —machine accounts that operate with minimal human intervention— to automate these tasks.
 As <a href="https://ieeexplore.ieee.org/abstract/document/8823643" target="_blank" rel="noopener noreferrer">Erlenhov et al. (2019)</a> noted, bots have become essential tools for facing the ever-increasing complexity in software development.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-challenge-of-bot-identification">The Challenge of Bot Identification<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#the-challenge-of-bot-identification" class="hash-link" aria-label="Direct link to The Challenge of Bot Identification" title="Direct link to The Challenge of Bot Identification">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-challenge-of-bot-identification">The Challenge of Bot Identification<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#the-challenge-of-bot-identification" class="hash-link" aria-label="Direct link to The Challenge of Bot Identification" title="Direct link to The Challenge of Bot Identification">​</a></h2>
 <p>Despite their prevalence, many bot accounts aren't easily identifiable. Consider these examples:</p>
 <ul>
 <li>The <strong>highfive</strong> account greets and assigns issues to contributors in the servo/servo repository but isn't explicitly labeled as a bot</li>
@@ -281,7 +281,7 @@ As <a href="https://ieeexplore.ieee.org/abstract/document/8823643" target="_blan
 <li><strong>Organizations</strong> wanting to properly credit human contributors</li>
 <li><strong>Analysts</strong> calculating "bus factors" and identifying key project contributors</li>
 </ol>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-integration-project">The Integration Project<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#the-integration-project" class="hash-link" aria-label="Direct link to The Integration Project" title="Direct link to The Integration Project">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-integration-project">The Integration Project<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#the-integration-project" class="hash-link" aria-label="Direct link to The Integration Project" title="Direct link to The Integration Project">​</a></h2>
 <p>This project aims to solve this problem by integrating <a href="https://www.sciencedirect.com/science/article/abs/pii/S016412122100008X" target="_blank" rel="noopener noreferrer">BoDeGHa</a>,
 a machine learning-based bot detection tool, with the <a href="https://chaoss.github.io/grimoirelab/" target="_blank" rel="noopener noreferrer">GrimoireLab</a> software development analytics platform.
 GrimoireLab already provides excellent capabilities for:</p>
@@ -291,7 +291,7 @@ GrimoireLab already provides excellent capabilities for:</p>
 <li>Data visualization using Kidash and KiBiter</li>
 </ul>
 <p>Adding BoDeGHa's trained ML classifier as a data enrichment component creates a complete end-to-end pipeline for analyzing bot vs. human contributions.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-the-pipeline-works">How The Pipeline Works<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#how-the-pipeline-works" class="hash-link" aria-label="Direct link to How The Pipeline Works" title="Direct link to How The Pipeline Works">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-the-pipeline-works">How The Pipeline Works<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#how-the-pipeline-works" class="hash-link" aria-label="Direct link to How The Pipeline Works" title="Direct link to How The Pipeline Works">​</a></h2>
 <p><img decoding="async" loading="lazy" alt="Pipeline Diagram" src="https://pooya-rostami.github.io/assets/images/Pipeline-28a5602c53243e2ace3d29c23dfef393.jpg" width="2606" height="432" class="img_ev3q"></p>
 <p>The integration works through the following steps:</p>
 <ol>
@@ -322,7 +322,7 @@ GrimoireLab already provides excellent capabilities for:</p>
 <p><strong>Visualization</strong>: Kibana dashboards transform the data into visual insights about contributor types and activities</p>
 </li>
 </ol>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="testing-the-integration">Testing the Integration<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#testing-the-integration" class="hash-link" aria-label="Direct link to Testing the Integration" title="Direct link to Testing the Integration">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="testing-the-integration">Testing the Integration<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#testing-the-integration" class="hash-link" aria-label="Direct link to Testing the Integration" title="Direct link to Testing the Integration">​</a></h2>
 <p>To demonstrate this pipeline, we analyzed four popular Cargo package repositories:</p>
 <p><img decoding="async" loading="lazy" alt="Contributor Data" src="https://pooya-rostami.github.io/assets/images/Contributor_Data-a41f0188f800d70ec3ee587acf624ab1.jpg" width="5120" height="2994" class="img_ev3q"></p>
 <ul>
@@ -332,7 +332,7 @@ GrimoireLab already provides excellent capabilities for:</p>
 <li><strong>tokio-rs/tokio</strong></li>
 </ul>
 <p>These repositories were selected due to their size and popularity, making them likely candidates for bot usage in their development processes.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="results">Results<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#results" class="hash-link" aria-label="Direct link to Results" title="Direct link to Results">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="results">Results<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#results" class="hash-link" aria-label="Direct link to Results" title="Direct link to Results">​</a></h3>
 <p>The analysis period covered December 2021 through January 2022, examining contributors who actively posted comments during this timeframe.</p>
 <p><img decoding="async" loading="lazy" alt="Contributor Analysis Results" src="https://pooya-rostami.github.io/assets/images/Contributor_Analysis_Results-af62604f47d75e2ee0c71b94e0cdf2f1.jpg" width="5120" height="2994" class="img_ev3q"></p>
 <p>Our findings revealed significant bot presence:</p>
@@ -343,26 +343,26 @@ GrimoireLab already provides excellent capabilities for:</p>
 <li><strong>tokio-rs/tokio</strong>: All contributors were human</li>
 </ul>
 <p>The relatively high proportion of bot contributors (approaching one-third in some repositories) highlights the importance of distinguishing between human and automated activity when analyzing project contributions.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="potential-extensions-and-applications">Potential Extensions and Applications<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#potential-extensions-and-applications" class="hash-link" aria-label="Direct link to Potential Extensions and Applications" title="Direct link to Potential Extensions and Applications">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="potential-extensions-and-applications">Potential Extensions and Applications<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#potential-extensions-and-applications" class="hash-link" aria-label="Direct link to Potential Extensions and Applications" title="Direct link to Potential Extensions and Applications">​</a></h2>
 <p>This integration opens up several valuable possibilities:</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="advanced-visualizations">Advanced Visualizations<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#advanced-visualizations" class="hash-link" aria-label="Direct link to Advanced Visualizations" title="Direct link to Advanced Visualizations">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="advanced-visualizations">Advanced Visualizations<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#advanced-visualizations" class="hash-link" aria-label="Direct link to Advanced Visualizations" title="Direct link to Advanced Visualizations">​</a></h3>
 <ul>
 <li><strong>Contribution Volume Analysis</strong>: Charts showing the proportion of comments/PRs handled by bots vs. humans</li>
 <li><strong>Bot Activity Patterns</strong>: Visualizations of when and how bots are most active in repositories</li>
 <li><strong>Cross-Repository Bot Usage</strong>: Analysis of which bots are used across multiple projects</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="enhanced-classification">Enhanced Classification<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#enhanced-classification" class="hash-link" aria-label="Direct link to Enhanced Classification" title="Direct link to Enhanced Classification">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="enhanced-classification">Enhanced Classification<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#enhanced-classification" class="hash-link" aria-label="Direct link to Enhanced Classification" title="Direct link to Enhanced Classification">​</a></h3>
 <ul>
 <li><strong>User Interface for Corrections</strong>: A mechanism for users to rectify occasional misclassifications</li>
 <li><strong>Classification Confidence</strong>: Indicators showing the ML model's confidence in each bot/human prediction</li>
 <li><strong>Custom Training</strong>: Ability to train the model on specific repositories for improved accuracy</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="integration-with-existing-tools">Integration with Existing Tools<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#integration-with-existing-tools" class="hash-link" aria-label="Direct link to Integration with Existing Tools" title="Direct link to Integration with Existing Tools">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="integration-with-existing-tools">Integration with Existing Tools<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#integration-with-existing-tools" class="hash-link" aria-label="Direct link to Integration with Existing Tools" title="Direct link to Integration with Existing Tools">​</a></h3>
 <ul>
 <li><strong>SortingHat Connection</strong>: Linking to GrimoireLab's contributor management component to maintain bot flags</li>
 <li><strong>Kibiter Display</strong>: Enhanced data visualization showing bot status in contributor profiles</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="practical-applications">Practical Applications<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#practical-applications" class="hash-link" aria-label="Direct link to Practical Applications" title="Direct link to Practical Applications">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="practical-applications">Practical Applications<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#practical-applications" class="hash-link" aria-label="Direct link to Practical Applications" title="Direct link to Practical Applications">​</a></h2>
 <p>This bot detection capability enables several practical applications:</p>
 <ol>
 <li><strong>True Bus Factor Calculation</strong>: Accurately assess project risk by counting only human contributors</li>
@@ -370,12 +370,12 @@ GrimoireLab already provides excellent capabilities for:</p>
 <li><strong>Bot Performance Analysis</strong>: Evaluate how effectively different bots are serving their intended purposes</li>
 <li><strong>Community Growth Tracking</strong>: Monitor genuine human community growth around open-source projects</li>
 </ol>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories/#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
 <p>As bots become more prevalent in collaborative software development, the ability to distinguish between human and automated contributions grows increasingly important. The integration of BoDeGHa's machine learning classifier into the GrimoireLab pipeline provides a powerful tool for researchers and practitioners seeking to understand the complex dynamics of modern software development teams.</p>
 <p>By accurately identifying bot accounts based on their commenting activities in issues and pull requests, this integration enables more nuanced and accurate socio-technical analysis of software repositories. For organizations and project maintainers, it offers a clearer picture of human contributions, facilitating proper recognition and credit allocation.</p>
 <hr>
 <p><em>This is an expanded summary of the research paper "Bot Detection in GitHub Repositories" by Natarajan Chidambaram and Pooya Rostami Mazrae, presented at the 19th International Conference on Mining Software Repositories (MSR '22).</em></p>
-<p>To check the paper click on following <a href="https://dl.acm.org/doi/10.1145/3524842.3528520" target="_blank" rel="noopener noreferrer">link</a> or download directly from following <a href="https://pooya-rostami.github.io/assets/files/MSR_hackathon_2022_BotDetectionInGitHubRepository-fd9857f087bada0b924abab62bbc7e93.pdf" target="_blank">link</a>
+<p>To check the paper click on following <a href="https://dl.acm.org/doi/10.1145/3524842.3528520" target="_blank" rel="noopener noreferrer">link</a> or download directly from following <a href="https://pooya-rostami.github.io/assets/files/MSR_hackathon_2022_BotDetectionInGitHubRepository-fd9857f087bada0b924abab62bbc7e93.pdf/" target="_blank">link</a>
 and for the implementation you can check the <a href="https://github.com/pooya-rostami/Hackathon-21" target="_blank" rel="noopener noreferrer">GitHub repository</a>.</p>
 <p>Citation:</p>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">@inproceedings{chidambaram2022bot,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  title={Bot detection in github repositories},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  author={Chidambaram, Natarajan and Mazrae, Pooya Rostami},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  booktitle={Proceedings of the 19th International Conference on Mining Software Repositories},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  pages={726--728},</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  year={2022}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>]]></content>
