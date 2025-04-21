@@ -11,7 +11,7 @@
         <id>https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links</id>
         <link href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links"/>
         <updated>2025-04-21T12:59:44.000Z</updated>
-        <summary type="html"><![CDATA[Introduction]]></summary>
+        <summary type="html"><![CDATA[Automated Recovery of Issue-Commit Links Leveraging Both Textual and Non-textual Data]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>Issue reports document discussions around required changes in issue-tracking systems, while commits contain the actual code changes in version control systems. Recovering links between issues and commits facilitates many software evolution tasks such as bug localization, defect prediction, software quality measurement, and documentation.</p>
 <p>A previous study on over half a million GitHub issues showed that only about 42.2% of issues are manually linked by developers to their related commits. Automating the linking of commit-issue pairs can significantly improve software maintenance tasks. However, current state-of-the-art approaches suffer from low precision, leading to unreliable results, and perform poorly when there's a lack of textual information in commits or issues.</p>
@@ -144,7 +144,7 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
         <id>https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes</id>
         <link href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes"/>
         <updated>2025-04-15T09:59:19.000Z</updated>
-        <summary type="html"><![CDATA[Introduction]]></summary>
+        <summary type="html"><![CDATA[Preliminary Study of GitHub Actions Workflow Changes]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Preliminary-Study-of-GitHub-Actions-Workflow-Changes#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>Continuous Integration and Development (CI/CD) practices have become essential in modern software development, helping developers release high-quality software more efficiently. GitHub Actions (GHA) was introduced in November 2019 as GitHub's native CI/CD solution and quickly gained popularity, replacing other tools like Travis CI within just 18 months.</p>
 <p>This article examines how GitHub Actions workflows evolve over time, based on a study of 22,733 GitHub repositories containing 4 million weekly snapshots of workflow files from November 2019 to September 2022. The research analyzes both coarse-grained changes (adding, modifying, renaming, or removing workflow files) and fine-grained changes (examining line-level modifications within these files).</p>
@@ -254,7 +254,7 @@ For instance, training on the Airflow project took only 25 minutes for Hybrid-Li
         <id>https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories</id>
         <link href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories"/>
         <updated>2025-04-15T08:33:06.000Z</updated>
-        <summary type="html"><![CDATA[Introduction]]></summary>
+        <summary type="html"><![CDATA[Bot Detection in GitHub Repositories]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://pooya-rostami.github.io/blog/Bot-Detection-in-GitHub-Repositories#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>In today's collaborative software development landscape, GitHub and similar platforms have revolutionized how developers work together.
 However, with this increased collaboration comes a significant workload of repetitive, error-prone, and time-intensive tasks such as:</p>
