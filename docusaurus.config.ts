@@ -46,6 +46,11 @@ const config: Config = {
             type: ["rss", "atom"],
             xslt: true,
           },
+          routeBasePath: 'blog',
+          path: 'blog',
+          blogSidebarCount: 5,
+          blogSidebarTitle: 'Recent posts',
+          postsPerPage: 10,
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",

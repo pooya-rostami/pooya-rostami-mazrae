@@ -1,5 +1,6 @@
 ---
 slug: Bot-Detection-in-GitHub-Repositories
+description: Bot Detection in GitHub Repositories
 title: Bot Detection in GitHub Repositories
 tags: [Research, SoftwareEngineering]
 ---

@@ -1,5 +1,6 @@
 ---
 slug: Hybrid-Linker-Automated-Recover-of-Issue-Commit-Links
+description: Automated Recovery of Issue-Commit Links Leveraging Both Textual and Non-textual Data
 title: Automated Recovery of Issue-Commit Links Leveraging Both Textual and Non-textual Data
 tags: [Research, SoftwareEngineering]
 ---

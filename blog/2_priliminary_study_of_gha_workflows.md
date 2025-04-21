@@ -1,5 +1,6 @@
 ---
 slug: Preliminary-Study-of-GitHub-Actions-Workflow-Changes
+description: Preliminary Study of GitHub Actions Workflow Changes
 title: Preliminary Study of GitHub Actions Workflow Changes
 tags: [Research, SoftwareEngineering]
 ---
