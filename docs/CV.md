@@ -17,6 +17,7 @@ Passionate researcher at [University of Mons (UMONS)](https://web.umons.ac.be/en
 scalable solutions for their maintenance.
 
 ## Industry Interests
+- Software Engineering
 - Back-End Developer
 - Data Science
 - Data Analysis
@@ -30,17 +31,19 @@ scalable solutions for their maintenance.
 
 ### AWS Service Experiences
 - S3
+- Lambda
 - SageMaker
-- VPC (basic)
-- lake formation
-- cost and billing report (CURv2)
+- Athena
+- Glue (crawler/db/pyspark notebook)
+- Cost and Usage Report (CURv2)
 - AWS Cognito
 - IAM (Roles)
 - CloudFormation
 - CloudTrail
 - CloudWatch
-- Lambda
 - RDS (basic)
+- VPC (basic)
+- Lake Formation
 
 
 ## Industry Certificates
